@@ -16,7 +16,7 @@ By choice, the plugin is minimal. Apart from the demo, you won't find any CSS. I
 2. Include plugin's code:
 
 	```html
-	<script src="dist/jquery.lister.min.js"></script>
+	<script src="js/jquery.lister.min.js"></script>
 	```
 
 3. Call the plugin:
