@@ -20,18 +20,15 @@ By choice, the plugin is minimal. Apart from the demo, you won't find any CSS. I
 	```
 
 3. Call the plugin:
-  All Select Elements:
+
+
   ```javascript
+  // All Select Elements:
   $("#element").lister();
-  ```
-  Single Select Element
-  ```javascript
+  // Single Select Element:
   $("#element").lister("selector");
+  // Multiple Select Elements
+  $("#element").lister(["selector1", "selector2"]);
   ```
-
-	```javascript
-	$("#element").lister(["selector1", "selector2"]);
-	```
-
 
 <a href="http://punkave.com/"><img src="https://raw.github.com/punkave/jquery-selective/master/logos/logo-box-builtby.png" /></a>
