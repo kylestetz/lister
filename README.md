@@ -24,11 +24,11 @@ By choice, the plugin is minimal. Apart from the demo, you won't find any CSS. I
 
   ```javascript
   // All Select Elements:
-  $("#element").lister();
+  $("select").lister();
   // Single Select Element:
-  $("#element").lister("selector");
+  $("selector1").lister();
   // Multiple Select Elements
-  $("#element").lister(["selector1", "selector2"]);
+  $("selector1", "selector2").lister();
   ```
 
 <a href="http://punkave.com/"><img src="https://raw.github.com/punkave/jquery-selective/master/logos/logo-box-builtby.png" /></a>
