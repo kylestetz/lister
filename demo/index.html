@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>jQuery Boilerplate</title>
+		<title>Lister</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<script src="../src/jquery.lister.js"></script>
 	</head>
 	<body>
-		<div id="element"></div>
+		<div>
+      <select class="first">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+
+      <select class="second">
+        <option value="ford">Ford</option>
+        <option value="lincoln">Lincoln</option>
+        <option value="chevy">Chevy</option>
+        <option value="dodge">Dodge</option>
+      </select>
+    </div>
 		<script>
 			$(function() {
-				$("#element").defaultPluginName({
-					propertyName: "a custom value"
-				});
+
+				$(".first").lister();
 			});
 		</script>
 	</body>

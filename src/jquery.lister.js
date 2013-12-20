@@ -14,15 +14,16 @@
 		// Create the defaults once
 		var pluginName = "lister";
 
-    // Currently, there isn't anything to configure
-    // 		defaults = {
-		// 		propertyName: "value"
-		// };
+    //Currently, there isn't anything to configure
+    		defaults = {
+				listClass: "lister"
+		};
 
 		// The actual plugin constructor
 		function Lister ( element, options ) {
 				this.element = element;
-				// jQuery has an extend method which merges the contents of two or
+				this.$element = $(this.element);
+        // jQuery has an extend method which merges the contents of two or
 				// more objects, storing the result in the first object. The first object
 				// is generally empty as we don't want to alter the default options for
 				// future instances of the plugin
@@ -32,24 +33,62 @@
 				this.init();
 		}
 
-		Plugin.prototype = {
-				init: function () {
-						// Place initialization logic here
-						// You already have access to the DOM element and
-						// the options via the instance, e.g. this.element
-						// and this.settings
-						// you can add more functions like the one below and
-						// call them like so: this.yourOtherFunction(this.element, this.settings).
-						console.log("xD");
-				}
+		Lister.prototype = {
+			init: function () {
+        console.log("You're at least here.");
+				// Place initialization logic here
+				// You already have access to the DOM element and
+				// the options via the instance, e.g. this.element
+				// and this.settings
+				// you can add more functions like the one below and
+				// call them like so: this.yourOtherFunction(this.element, this.settings).
+				this.cloneSelect();
+        this.bindClicks();
+        console.log("");
+			},
+
+      cloneSelect: function() {
+        console.log(this.$element);
+        this.$element.each(function(){
+          var $thisSelect = $(this);
+
+          console.log($thisSelect);
+          //Create the new list
+          var thisUl = $thisSelect.clone().wrap("<div></div>").parent().html().replace(/select/g,"ul").replace(/option/g,"li");
+
+          var $thisUl = $(thisUl);
+
+          //Give the list an appropriate class.
+          $thisUl.addClass("listerator");
+
+          //Insert the new list into the DOM.
+          $thisSelect.after($thisUl);
+        })
+      },
+
+      bindClicks: function() {
+        var $list = $("ul.listerator");
+
+        var $listItem = $list.find("li");
+        $listItem.click(function(){
+          var $thisItem = $(this);
+          var $thisItemSelect = $thisItem.parent().prev(this.$element);
+
+          var $thisItemEquivalent = $thisItemSelect.find("option").eq($thisItem.index());
+
+          $thisItemEquivalent.prop("selected", true);
+
+        });
+      }
 		};
+
 
 		// A really lightweight plugin wrapper around the constructor,
 		// preventing against multiple instantiations
 		$.fn.lister = function ( options ) {
 				return this.each(function() {
 						if ( !$.data( this, "plugin_" + pluginName ) ) {
-								$.data( this, "plugin_" + pluginName, new Plugin( this, options ) );
+								$.data( this, "plugin_" + pluginName, new Lister( this, options ) );
 						}
 				});
 		};
