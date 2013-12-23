@@ -17,6 +17,43 @@ module.exports = function(grunt) {
 				" */\n"
 		},
 
+    less: {
+      development: {
+       files: {
+          "demo/styles/lister.css": "demo/styles/lister.less"
+        }
+      },
+      production: {
+        options: {
+          compress: true,
+          report: "min",
+          sourceMap: true
+        },
+        files: {
+          "demo/styles/lister.css": "demo/styles/lister.less"
+        }
+      }
+    },
+
+    watch: {
+      options: {
+        livereload: true
+      },
+      uglify: {
+        files: ['src/*.js'],
+        tasks: ['uglify'],
+        options: {
+          spawn: false,
+          debounceDelay: 1000 // Don't call uglify more than once per second
+        }
+      },
+      less: {
+        files: ['example/styles/*.less'],
+        tasks: ['less:development']
+      }
+    },
+
+
 		// Concat definitions
 		concat: {
 			dist: {
@@ -49,10 +86,11 @@ module.exports = function(grunt) {
 
 	});
 
+  grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks("grunt-contrib-concat");
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
-	grunt.loadNpmTasks("grunt-contrib-coffee");
+
 
 	grunt.registerTask("default", ["jshint", "concat", "uglify"]);
 	grunt.registerTask("travis", ["jshint"]);

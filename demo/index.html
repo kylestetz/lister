@@ -4,6 +4,7 @@
 		<title>Lister</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<script src="../src/jquery.lister.js"></script>
+    <link rel="stylesheet" href="styles/lister.css">
 	</head>
 	<body>
 		<div>
@@ -20,11 +21,23 @@
         <option value="chevy">Chevy</option>
         <option value="dodge">Dodge</option>
       </select>
+
+       <select class="third">
+        <option value="toyota">Toyota</option>
+        <option value="honda">Honda</option>
+        <option value="mitsibushi">Mitsibushi</option>
+        <option value="kia">Kia</option>
+      </select>
     </div>
 		<script>
 			$(function() {
 
 				$(".first, .second").lister();
+        $(".third").lister({
+          listClass: "my-lister",
+          selectedClass: "my-lister-selected",
+          selectedTop: false,
+        });
 			});
 		</script>
 	</body>
