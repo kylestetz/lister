@@ -3,17 +3,77 @@
 	<head>
 		<title>Lister</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="js/prism.js"></script>
 		<script src="../src/jquery.lister.js"></script>
     <link rel="stylesheet" href="styles/lister.css">
 	</head>
 	<body>
+  <header>
+  <img src="img/lister.png">
+    <h1>Lister.js</h1>
+    <h2>Lister.js is a minimal jQuery plugin for handling selects as unordered lists.</h2>
+  </header>
+  <div class="color-stripe-wrapper">
+      <div class="color-stripe">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
 		<div>
-      <select class="first">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
-      </select>
+      <h3>Example One -- Markup Only</h3>
+      <p>In this example, we're only calling lister without adding any styles to either the select or the unordered list.</p>
+        <h4>Code</h4>
+          <pre>
+            <code>
+              //All that is necessary is the standard HTML select with options.
+              <select class="first">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+              </select>
+              //Call lister from a script tag in your HTML document.
+              <script>
+                $(function() {
+                  $(".first").lister();
+                }
+              </script>
+            </code>
+          </pre>
+
+
+        <h4>Example</h4>
+        <select class="first">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
 
       <select class="second">
         <option value="ford">Ford</option>

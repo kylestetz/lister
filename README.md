@@ -1,4 +1,4 @@
-# Lister.js [Early Alpha] - GH Pages
+# Lister.js [Early Alpha]
 
 ### A jQuery plugin to make lists from selects.
 This plugin has a fairly simple goal. Given a set of selectors, translate them into unordered lists and have those list items pass the click event back to the select element.

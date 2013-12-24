@@ -31,3 +31,146 @@ ul.lister
   }
 }
 
+// Stuff below here ought to be part of the gh-pages branch.
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro|Montserrat);
+
+header
+{
+  padding: 20px;
+  text-align:center;
+  h1
+  {
+    position: absolute;
+    visibility: hidden;
+  }
+  h2
+  {
+    font-size: 125%;
+    font-family: "Source Code Pro";
+    font-weight: normal;
+  }
+}
+
+/*---------------------------------------*/
+/*--------------- COLORS ----------------*/
+/*---------------------------------------*/
+@red: rgb(139, 1, 9);
+@yellow: rgb(203, 149, 1);
+@green: rgb(57, 124, 31);
+@blue: rgb(28, 112, 149);
+@purple: rgb(74, 66, 126);
+
+/*---------------------------------------*/
+/*------------ COLOR-STRIPE -------------*/
+/*---------------------------------------*/
+.color-stripe-wrapper{width: 100%; margin: 0 0 20px 0; overflow: hidden; z-index: 10; position: relative; top: 0;}
+.color-stripe
+{
+  background-color: @red;
+  overflow: hidden;
+  height: 8px;
+  width: 120%;
+  .clearfix;
+  span
+  {
+    display: block;
+    float: left;
+    height: 8px;
+    max-width: 100px;
+    min-width: 10px;
+    background-color: @yellow;
+    animation: slowest 20s infinite;
+    -webkit-animation: slowest 20s infinite;
+    .transition(width, 2s, ease-in-out);
+
+    &:nth-child(3n+3){ background-color: @red;}
+    &:nth-child(2n+2){ background-color: @blue;}
+    &:nth-child(4n+4){ background-color: @green;}
+    &:nth-child(5n+5){ background-color: @purple;}
+
+    &:nth-child(2n+2), &:nth-child(4n+4) {
+      width: 100px;
+      animation: slow 30s infinite;
+      -webkit-animation: slow 30s infinite;
+    }
+
+    &:nth-child(5n+5), &:nth-child(8n+8) {
+      width: 85px;
+      animation: long 25s infinite;
+      -webkit-animation: long 25s infinite;
+    }
+
+    &:nth-child(2n+2), &:nth-child(6n+6), &:nth-child(4n+4) {
+      -webkit-animation-delay: 5s;
+      -moz-animation-delay: 5s;
+      -o-animation-delay: 5s;
+      animation-delay: 5s;
+    }
+
+  }
+}
+
+@keyframes slowest
+{
+  0% {width: 50px;}
+  50% {width: 100px;}
+  100% {width: 50px;}
+}
+
+@-webkit-keyframes slowest
+{
+  0% {width: 50px;}
+  50% {width: 100px;}
+  100% {width: 50px;}
+}
+
+@keyframes slow
+{
+  0% {width: 100px;}
+  50% {width: 50px;}
+  100% {width: 100px;}
+}
+
+@-webkit-keyframes slow
+{
+  0% {width: 100px;}
+  50% {width: 50px;}
+  100% {width: 100px;}
+}
+
+@keyframes long
+{
+  0% {width: 85px;}
+  30% {width: 300px;}
+  50% {width: 200px;}
+  70% {width: 250px;}
+  100% {width: 85px;}
+}
+
+@-webkit-keyframes long
+{
+  0% {width: 85px;}
+  30% {width: 100px;}
+  50% {width: 200px;}
+  70% {width: 250px;}
+  100% {width: 85px;}
+}
+
+
+.transition(@what: all, @duration:0.2s, @ease:ease-out) {
+  -webkit-transition: @what @duration @ease;
+  -moz-transition: @what @duration @ease;
+  -o-transition: @what @duration @ease;
+  transition: @what @duration @ease;
+}
+*
+{
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+  margin: 0;
+}
+
+.clearfix() {
+  zoom: 1;
+  &:before { content: ''; display: block; }
+  &:after { content: ''; display: table; clear: both; }
+}
