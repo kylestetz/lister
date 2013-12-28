@@ -20,7 +20,8 @@ module.exports = function(grunt) {
     less: {
       development: {
        files: {
-          "demo/styles/lister.css": "demo/styles/lister.less"
+          "demo/styles/lister.css": "demo/styles/lister.less",
+          "demo/styles/prism.css": "demo/styles/prism.less"
         }
       },
       production: {
@@ -30,7 +31,8 @@ module.exports = function(grunt) {
           sourceMap: true
         },
         files: {
-          "demo/styles/lister.css": "demo/styles/lister.less"
+          "demo/styles/lister.css": "demo/styles/lister.less",
+          "demo/styles/prism.css": "demo/styles/prism.less"
         }
       }
     },
@@ -41,14 +43,14 @@ module.exports = function(grunt) {
       },
       uglify: {
         files: ['src/*.js'],
-        tasks: ['uglify'],
+        tasks: ['concat', 'uglify'],
         options: {
           spawn: false,
           debounceDelay: 1000 // Don't call uglify more than once per second
         }
       },
       less: {
-        files: ['example/styles/*.less'],
+        files: ['demo/styles/*.less'],
         tasks: ['less:development']
       }
     },
@@ -87,6 +89,7 @@ module.exports = function(grunt) {
 	});
 
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks("grunt-contrib-concat");
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-contrib-uglify");

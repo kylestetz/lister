@@ -7,8 +7,10 @@
 		var pluginName = "lister";
   	defaults = {
 			listClass: "lister",
+      openListClass: "lister-open",
       selectedClass: "lister-selected",
       selectedTop: true,
+      selectedTopText: true,
       selectedTopWrapperClass: "lister-selected-top"
 		};
 
@@ -40,8 +42,8 @@
         // Cache the constructor object
         var self = this;
 
-        // Loop through the jQuery object and
-        // duplicate as necessary;
+        // Loop through and build out the
+        // jQuery object; duplicate as necessary;
         this.$element.each(function(){
           var $thisSelect = $(this);
 
@@ -61,6 +63,7 @@
           // above the <ul> to house the selected item.
           if (self.settings.selectedTop) {
             self.$element.before("<div class='"+self.settings.selectedTopWrapperClass+"'></div>")
+            var $selectedTop = $($thisSelect.prev("."+self.settings.selectedTopWrapperClass));
           }
         })
       },
@@ -72,6 +75,30 @@
         // Create the jQuery object of all appropriates
         // lists given a list class.
         var $list = $("ul."+self.settings.listClass);
+
+        if (self.settings.selectedTop) {
+          //First, let's make an object of all the selected tops
+          var $selectedTop = $(self.$element.prev("."+self.settings.selectedTopWrapperClass));
+
+          // Then, we'll need to find the closest <li>
+          // TO-DO: make sure this only selects the next <ul>
+          var $nextSelect = $selectedTop.next("select");
+          var $nextList = $nextSelect.next("ul");
+
+          var $firstOption = $nextSelect.children("option").first();
+          console.log($firstOption);
+
+          $selectedTop.text($firstOption.val());
+
+
+          // First, let's add a drop-down option on clicking the
+          // selected top <div> itself.
+
+          $selectedTop.click(function(){
+            console.log($nextList);
+            $nextList.toggleClass(self.settings.openListClass);
+          });
+        }
 
         // Create the jQuery object of all appropriate
         // list items, given a list class.
@@ -87,7 +114,16 @@
           // removing the class from all the list items.
           $listItem.removeClass(self.settings.selectedClass);
           $thisItem.addClass(self.settings.selectedClass);
+
+          // If we've passed in the option for the selected top section,
+          // let's bind the appropriate clicks to it.
           if (self.settings.selectedTop) {
+
+            // Let's make a jQuery object out of the container
+            // <div> for selectedTop
+            var $thisSelectedTop = $($thisItemSelect.prev("."+self.settings.selectedTopWrapperClass));
+
+
 
             // For a given list item, find the equivalent
             // <option> in the original select item.
@@ -97,14 +133,10 @@
             $thisItemEquivalent.prop("selected", true);
 
 
-            // Let's make a jQuery object out of the container
-            // <div> for selectedTop
-            var $selectedTop = $($thisItemSelect.prev("."+self.settings.selectedTopWrapperClass));
-
-            console.log($selectedTop);
             // Let's add the text to the element.
-            $selectedTop.text($thisItemEquivalent.val());
-            // $thisItem.parent().before($selectedTop;
+            $thisSelectedTop.text($thisItemEquivalent.val());
+
+
           } else {
             // For a given list item, find the equivalent
             // <option> in the original select item.

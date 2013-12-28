@@ -3,93 +3,97 @@
 	<head>
 		<title>Lister</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script src="js/prism.js"></script>
 		<script src="../src/jquery.lister.js"></script>
     <link rel="stylesheet" href="styles/lister.css">
-	</head>
+  </head>
 	<body>
-  <header>
-  <img src="img/lister.png">
-    <h1>Lister.js</h1>
-    <h2>Lister.js is a minimal jQuery plugin for handling selects as unordered lists.</h2>
-  </header>
-  <div class="color-stripe-wrapper">
+    <header>
+    <img src="img/lister.png">
+      <h1>Lister.js</h1>
+      <h2>Lister.js is a minimal jQuery plugin for handling selects as unordered lists.</h2>
+    </header>
+    <div class="color-stripe-wrapper">
       <div class="color-stripe">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+        <span class="green"></span>
+        <span class="yellow"></span>
+        <span class="blue"></span>
+        <span class="purple"></span>
+        <span class="red"></span>
       </div>
     </div>
-		<div>
-      <h3>Example One -- Markup Only</h3>
-      <p>In this example, we're only calling lister without adding any styles to either the select or the unordered list.</p>
-        <h4>Code</h4>
-          <pre>
-            <code>
-              //All that is necessary is the standard HTML select with options.
+
+    <div class="green">
+      <div class="wrapper">
+        <h3>Example One | Markup Only</h3>
+        <p>In this example, we're only calling lister without adding any styles to either the select or the unordered list.</p>
+          <h4>Code</h4>
+              <script src="https://gist.github.com/jsumnersmith/8115326.js"></script>
+              <script src="https://gist.github.com/jsumnersmith/8117244.js"></script>
+          <h4>Result</h4>
+          <div class="result one">
+            <form>
               <select class="first">
                 <option value="volvo">Volvo</option>
                 <option value="saab">Saab</option>
                 <option value="mercedes">Mercedes</option>
                 <option value="audi">Audi</option>
               </select>
-              //Call lister from a script tag in your HTML document.
-              <script>
-                $(function() {
-                  $(".first").lister();
-                }
-              </script>
-            </code>
-          </pre>
-
-
-        <h4>Example</h4>
-        <select class="first">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
-        </select>
-
-      <select class="second">
-        <option value="ford">Ford</option>
-        <option value="lincoln">Lincoln</option>
-        <option value="chevy">Chevy</option>
-        <option value="dodge">Dodge</option>
-      </select>
-
-       <select class="third">
-        <option value="toyota">Toyota</option>
-        <option value="honda">Honda</option>
-        <option value="mitsibushi">Mitsibushi</option>
-        <option value="kia">Kia</option>
-      </select>
+            </form>
+          </div>
+      </div>
     </div>
-		<script>
+    <div class="color-stripe-wrapper">
+      <div class="color-stripe">
+        <span class="yellow"></span>
+        <span class="blue"></span>
+        <span class="purple"></span>
+        <span class="red"></span>
+        <span class="green"></span>
+      </div>
+    </div>
+    <div class="yellow">
+      <div class="wrapper">
+        <h3>Example Two | Markup and Styles</h3>
+        <p>In this example, we're calling lister and adding appropriate styles that hide the select and turn the unordered list into a select-style element.</p>
+        <h4>Code</h4>
+        <script src="https://gist.github.com/jsumnersmith/8126776.js"></script>
+        <script src="https://gist.github.com/jsumnersmith/8126762.js"></script>
+        <script src="https://gist.github.com/jsumnersmith/8148541.js"></script>
+        <h4>Result</h4>
+        <div class="result two">
+          <form method="get">
+            <select class="second" name="two">
+              <option value="ford">Ford</option>
+              <option value="lincoln">Lincoln</option>
+              <option value="chevy">Chevy</option>
+              <option value="dodge">Dodge</option>
+            </select>
+            <input type="submit" value="Test It">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="color-stripe-wrapper">
+      <div class="color-stripe">
+        <span class="blue"></span>
+        <span class="purple"></span>
+        <span class="red"></span>
+        <span class="green"></span>
+        <span class="yellow"></span>
+      </div>
+    </div>
+    <div class="blue">
+      <div class="wrapper">
+         <select class="third">
+          <option value="toyota">Toyota</option>
+          <option value="honda">Honda</option>
+          <option value="mitsibushi">Mitsibushi</option>
+          <option value="kia">Kia</option>
+        </select>
+      </div>
+    </div>
+
+    <script>
 			$(function() {
 
 				$(".first, .second").lister();
@@ -98,7 +102,10 @@
           selectedClass: "my-lister-selected",
           selectedTop: false,
         });
-			});
-		</script>
-	</body>
+      });
+    </script>
+
+
+
+  </body>
 </html>
