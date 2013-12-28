@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Code+Pro|Montserrat);
 select.first {
   font-family: "Times New Roman", serif;
 }
@@ -14,6 +14,17 @@ select.second {
 }
 .result.one div.lister-selected-top {
   font-family: "Times New Roman", serif;
+}
+.result.two p {
+  margin: 15px 0;
+}
+.result.two input[type="submit"] {
+  background: white;
+  border: 1px solid black;
+  border-radius: 0;
+  font-family: "Source Code Pro";
+  display: block;
+  clear: left;
 }
 .yellow div.lister-selected-top {
   padding: 10px 30px 10px 10px;
@@ -64,9 +75,14 @@ body {
 }
 h3 {
   font-size: 125%;
+  font-family: "Montserrat";
+  text-transform: uppercase;
 }
 h4 {
   font-size: 115%;
+  font-family: "Montserrat";
+  text-transform: uppercase;
+  margin: 15px 0 5px;
 }
 /*---------------------------------------*/
 /*--------------- Grid ------------------*/
@@ -81,13 +97,13 @@ h4 {
 /*--------------- COLORS ----------------*/
 /*---------------------------------------*/
 .blue {
-  background: rgba(28, 112, 149, 0.8);
+  background: rgba(28, 112, 149, 0.7);
 }
 .green {
-  background: rgba(57, 124, 31, 0.8);
+  background: rgba(57, 124, 31, 0.7);
 }
 .yellow {
-  background: rgba(203, 149, 1, 0.8);
+  background: rgba(203, 149, 1, 0.7);
 }
 /*---------------------------------------*/
 /*------------ COLOR-STRIPE -------------*/

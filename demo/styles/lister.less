@@ -1,4 +1,9 @@
+@main-font: "Source Code Pro";
+@header-font: "Montserrat";
+
 // This is my lister demo file.
+
+
 select
 {
   &.first
@@ -24,6 +29,23 @@ select
     div.lister-selected-top
     {
       font-family: "Times New Roman", serif;
+    }
+  }
+  &.two
+  {
+    p
+    {
+      margin: 15px 0;
+    }
+    input[type="submit"]
+    {
+      background: white;
+      border: 1px solid black;
+      border-radius: 0;
+      font-family: @main-font;
+      display: block;
+
+      clear: left;
     }
   }
 }
@@ -72,7 +94,6 @@ ul.lister
 }
 
 // Stuff below here ought to be part of the gh-pages branch.
-@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
 
 header
 {
@@ -93,17 +114,27 @@ header
 /*---------------------------------------*/
 /*------------- Typography --------------*/
 /*---------------------------------------*/
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Code+Pro|Montserrat);
+
+@main-font: "Source Code Pro";
+@header-font: "Montserrat";
+
 body
 {
-  font-family: "Source Code Pro";
+  font-family: @main-font;
 }
 h3
 {
   font-size: 125%;
+  font-family: @header-font;
+  text-transform: uppercase;
 }
 h4
 {
   font-size: 115%;
+  font-family: @header-font;
+  text-transform: uppercase;
+  margin: 15px 0 5px;
 }
 
 
@@ -133,15 +164,15 @@ h4
 // Special background color classes
 .blue
 {
-  background: fadeout(@blue, 20%);
+  background: fadeout(@blue, 30%);
 }
 .green
 {
-  background: fadeout(@green, 20%);
+  background: fadeout(@green, 30%);
 }
 .yellow
 {
-  background: fadeout(@yellow, 20%);
+  background: fadeout(@yellow, 30%);
 }
 
 /*---------------------------------------*/
