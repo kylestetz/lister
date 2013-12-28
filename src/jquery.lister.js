@@ -11,7 +11,11 @@
       selectedClass: "lister-selected",
       selectedTop: true,
       selectedTopText: true,
-      selectedTopWrapperClass: "lister-selected-top"
+      selectedTopWrapperClass: "lister-selected-top",
+      populateSelectedTop: true,
+      listClickCallback: function() {},
+      selectedTopOpenCallback: function() {},
+      selectedTopCloseCallback: function() {}
 		};
 
 		// The actual plugin constructor
@@ -35,7 +39,12 @@
 				self.cloneSelect();
         // Then, let's bind the UI back to the
         // original selects.
-        self.bindClicks();
+        self.listItemClick();
+
+        if (self.settings.selectedTop) {
+          self.createSelectedTop();
+          self.selectedTopClick();
+        }
 			},
 
       cloneSelect: function() {
@@ -62,43 +71,17 @@
           // If the option has been passed in, let's also create a new <div>
           // above the <ul> to house the selected item.
           if (self.settings.selectedTop) {
-            self.$element.before("<div class='"+self.settings.selectedTopWrapperClass+"'></div>")
-            var $selectedTop = $($thisSelect.prev("."+self.settings.selectedTopWrapperClass));
           }
         })
       },
 
-      bindClicks: function() {
+      listItemClick: function() {
         // Cache the constructor object
         var self = this;
 
         // Create the jQuery object of all appropriates
         // lists given a list class.
         var $list = $("ul."+self.settings.listClass);
-
-        if (self.settings.selectedTop) {
-          //First, let's make an object of all the selected tops
-          var $selectedTop = $(self.$element.prev("."+self.settings.selectedTopWrapperClass));
-
-          // Then, we'll need to find the closest <li>
-          // TO-DO: make sure this only selects the next <ul>
-          var $nextSelect = $selectedTop.next("select");
-          var $nextList = $nextSelect.next("ul");
-
-          var $firstOption = $nextSelect.children("option").first();
-          console.log($firstOption);
-
-          $selectedTop.text($firstOption.val());
-
-
-          // First, let's add a drop-down option on clicking the
-          // selected top <div> itself.
-
-          $selectedTop.click(function(){
-            console.log($nextList);
-            $nextList.toggleClass(self.settings.openListClass);
-          });
-        }
 
         // Create the jQuery object of all appropriate
         // list items, given a list class.
@@ -115,37 +98,66 @@
           $listItem.removeClass(self.settings.selectedClass);
           $thisItem.addClass(self.settings.selectedClass);
 
+          // For a given list item, find the equivalent
+          // <option> in the original select item.
+          var $thisItemEquivalent = $thisItemSelect.find("option").eq($thisItem.index());
+
+          // For each click event, set the equivalent <option> to selected.
+          $thisItemEquivalent.prop("selected", true);
+
           // If we've passed in the option for the selected top section,
           // let's bind the appropriate clicks to it.
           if (self.settings.selectedTop) {
-
             // Let's make a jQuery object out of the container
             // <div> for selectedTop
             var $thisSelectedTop = $($thisItemSelect.prev("."+self.settings.selectedTopWrapperClass));
 
-
-
-            // For a given list item, find the equivalent
-            // <option> in the original select item.
-            var $thisItemEquivalent = $thisItemSelect.find("option").eq($thisItem.index());
-
-            // For each click event, set the equivalent <option> to selected.
-            $thisItemEquivalent.prop("selected", true);
-
-
             // Let's add the text to the element.
-            $thisSelectedTop.text($thisItemEquivalent.val());
-
-
-          } else {
-            // For a given list item, find the equivalent
-            // <option> in the original select item.
-            var $thisItemEquivalent = $thisItemSelect.find("option").eq($thisItem.index());
-            // For each click event, set the equivalent <option> to selected.
-            $thisItemEquivalent.prop("selected", true);
+            $thisSelectedTop.text($thisItemEquivalent.text());
+          }
+          // Let's allow for a callback on the click event.
+          if (self.settings.listClickCallback) {
+            self.settings.listClickCallback();
           }
         });
       },
+
+      createSelectedTop: function() {
+        var self = this;
+
+        self.$element.before("<div class='"+self.settings.selectedTopWrapperClass+"'></div>");
+        // console.log($selectedTop);
+        //First, let's make an object of all the selected tops
+        var $selectedTop = $(self.$element.prev("."+self.settings.selectedTopWrapperClass));
+
+        // Then, we'll need to find the closest <li>
+        // TO-DO: make sure this only selects the next <ul>
+        var $nextSelect = $selectedTop.next("select");
+        var $nextList = $nextSelect.next("ul");
+
+        if (self.settings.populateSelectedTop) {
+           var $firstOption = $nextSelect.children("option").first();
+          console.log($firstOption);
+          $selectedTop.text($firstOption.text());
+        }
+      },
+
+      selectedTopClick: function() {
+        var self = this;
+        var $selectedTop = $(self.$element.prev("."+self.settings.selectedTopWrapperClass));
+        var $nextSelect = $selectedTop.next("select");
+        var $nextList = $nextSelect.next("ul");
+        $selectedTop.click(function(){
+          // TO-DO: add callbacks on this click event.
+          if ($nextList.hasClass(self.settings.openListClass)){
+            $nextList.removeClass(self.settings.openListClass);
+            self.settings.selectedTopCloseCallback();
+          } else {
+            $nextList.addClass(self.settings.openListClass);
+            self.settings.selectedTopOpenCallback();
+          }
+        });
+      }
 		};
 
 

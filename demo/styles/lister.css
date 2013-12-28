@@ -155,6 +155,10 @@ h4 {
 /*----------------------------------------*/
 /*------------ Gist Syntax ---------------*/
 /*----------------------------------------*/
+.gist,
+.gist .gist-file .gist-data .line-pre {
+  font-family: "Source Code Pro" !important;
+}
 .gist-syntax .nt {
   color: #1c7095 !important;
 }

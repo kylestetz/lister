@@ -103,7 +103,10 @@
     <script>
 			$(function() {
 
-				$(".first, .second").lister();
+				$(".first, .second").lister({
+          selectedTopOpenCallback: function(){console.log("Open!")},
+          selectedTopCloseCallback: function(){console.log("Close!")}
+        });
         $(".third").lister({
           listClass: "my-lister",
           selectedClass: "my-lister-selected",
