@@ -20,8 +20,7 @@ module.exports = function(grunt) {
     less: {
       development: {
        files: {
-          "demo/styles/lister.css": "demo/styles/lister.less",
-          "demo/styles/prism.css": "demo/styles/prism.less"
+          "styles/lister.css": "styles/lister.less",
         }
       },
       production: {
@@ -31,8 +30,7 @@ module.exports = function(grunt) {
           sourceMap: true
         },
         files: {
-          "demo/styles/lister.css": "demo/styles/lister.less",
-          "demo/styles/prism.css": "demo/styles/prism.less"
+          "styles/lister.css": "styles/lister.less",
         }
       }
     },
@@ -50,7 +48,7 @@ module.exports = function(grunt) {
         }
       },
       less: {
-        files: ['demo/styles/*.less'],
+        files: ['styles/*.less'],
         tasks: ['less:development']
       }
     },
