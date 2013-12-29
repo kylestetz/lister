@@ -1,0 +1,183 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Code+Pro|Montserrat);
+select.first {
+  font-family: "Times New Roman", serif;
+}
+select.second {
+  visibility: hidden;
+  position: absolute;
+}
+.result {
+  padding: 15px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  background: #f8f8ff;
+}
+.result.one div.lister-selected-top {
+  font-family: "Times New Roman", serif;
+}
+.result.two p {
+  margin: 15px 0;
+}
+.result.two input[type="submit"] {
+  background: white;
+  border: 1px solid black;
+  border-radius: 0;
+  font-family: "Source Code Pro";
+  display: block;
+  clear: left;
+}
+.yellow div.lister-selected-top {
+  padding: 10px 30px 10px 10px;
+  display: inline-block;
+  border: 1px solid black;
+  min-height: 42px;
+  min-width: 150px;
+  background: url("../img/arrow.png") 90% center no-repeat;
+}
+ul.lister.first {
+  font-family: "Times New Roman", serif;
+}
+ul.lister.second {
+  display: none;
+  border: 1px solid black;
+  border-top: none;
+  width: 150px;
+  padding: 5px 0;
+  list-style: none;
+}
+ul.lister.second.lister-open {
+  display: block;
+}
+ul.lister.second li {
+  cursor: default;
+  padding: 2.5px 10px;
+}
+ul.lister.second li:hover {
+  background: #ccc;
+}
+header {
+  padding: 20px;
+  text-align: center;
+}
+header h1 {
+  position: absolute;
+  visibility: hidden;
+}
+header h2 {
+  font-size: 125%;
+  font-weight: normal;
+}
+/*---------------------------------------*/
+/*------------- Typography --------------*/
+/*---------------------------------------*/
+body {
+  font-family: "Source Code Pro";
+}
+h3 {
+  font-size: 125%;
+  font-family: "Montserrat";
+  text-transform: uppercase;
+}
+h4 {
+  font-size: 115%;
+  font-family: "Montserrat";
+  text-transform: uppercase;
+  margin: 15px 0 5px;
+}
+/*---------------------------------------*/
+/*--------------- Grid ------------------*/
+/*---------------------------------------*/
+.wrapper {
+  display: block;
+  margin: 0 auto;
+  padding: 20px 5%;
+  max-width: 1280px;
+}
+/*---------------------------------------*/
+/*--------------- COLORS ----------------*/
+/*---------------------------------------*/
+.blue {
+  background: rgba(28, 112, 149, 0.7);
+}
+.green {
+  background: rgba(57, 124, 31, 0.7);
+}
+.yellow {
+  background: rgba(203, 149, 1, 0.7);
+}
+/*---------------------------------------*/
+/*------------ COLOR-STRIPE -------------*/
+/*---------------------------------------*/
+.color-stripe-wrapper {
+  width: 100%;
+  overflow: hidden;
+  z-index: 10;
+  position: relative;
+  top: 0;
+}
+.color-stripe {
+  background-color: #8b0109;
+  overflow: hidden;
+  height: 8px;
+  width: 100%;
+  zoom: 1;
+}
+.color-stripe:before {
+  content: '';
+  display: block;
+}
+.color-stripe:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.color-stripe span {
+  display: block;
+  float: left;
+  height: 8px;
+  width: 20%;
+}
+.color-stripe span.green {
+  background-color: #397c1f;
+}
+.color-stripe span.yellow {
+  background-color: #cb9501;
+}
+.color-stripe span.blue {
+  background-color: #1c7095;
+}
+.color-stripe span.purple {
+  background-color: #4a427e;
+}
+.color-stripe span.red {
+  background-color: #8b0109;
+}
+/*----------------------------------------*/
+/*------------ Gist Syntax ---------------*/
+/*----------------------------------------*/
+.gist,
+.gist .gist-file .gist-data .line-pre {
+  font-family: "Source Code Pro" !important;
+}
+.gist-syntax .nt {
+  color: #1c7095 !important;
+}
+.gist-syntax .na,
+.gist-syntax .m {
+  color: #397c1f !important;
+}
+.gist-syntax .s,
+.gist-syntax .s2,
+.gist-syntax .o {
+  color: #8b0109 !important;
+}
+.gist-syntax .err {
+  color: #000 !important;
+  background: none !important;
+}
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+}

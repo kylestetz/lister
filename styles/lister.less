@@ -1,0 +1,252 @@
+@main-font: "Source Code Pro";
+@header-font: "Montserrat";
+
+// This is my lister demo file.
+
+
+select
+{
+  &.first
+  {
+    // float: left;
+    // clear: left;
+    font-family: "Times New Roman", serif;
+  }
+  &.second
+  {
+    visibility: hidden; //Make it invisible.
+    position: absolute; //Make it have no height.
+  }
+}
+.result {
+  padding: 15px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  background: #f8f8ff;
+
+  &.one
+  {
+    div.lister-selected-top
+    {
+      font-family: "Times New Roman", serif;
+    }
+  }
+  &.two
+  {
+    p
+    {
+      margin: 15px 0;
+    }
+    input[type="submit"]
+    {
+      background: white;
+      border: 1px solid black;
+      border-radius: 0;
+      font-family: @main-font;
+      display: block;
+
+      clear: left;
+    }
+  }
+}
+
+.yellow div.lister-selected-top //Making it specific to the styled examples.
+{
+  padding: 10px 30px 10px 10px;
+  display: inline-block;
+  border: 1px solid black;
+  min-height: 42px;
+  min-width: 150px;
+  background: url("../img/arrow.png") 90% center no-repeat;
+
+}
+ul.lister
+{
+  &.first
+  {
+    // float: left;
+    // clear: left;
+    font-family: "Times New Roman", serif;
+  }
+  &.second
+  {
+    // Here's where the mad-mad styles go.
+    display: none;
+    border: 1px solid black;
+    border-top: none;
+    width: 150px;
+    padding: 5px 0;
+    list-style: none;
+    &.lister-open
+    {
+      display: block;
+    }
+    li
+    {
+      cursor: default;
+      padding: 2.5px 10px;
+      &:hover
+      {
+        background: #ccc;
+      }
+    }
+  }
+}
+
+// Stuff below here ought to be part of the gh-pages branch.
+
+header
+{
+  padding: 20px;
+  text-align:center;
+  h1
+  {
+    position: absolute;
+    visibility: hidden;
+  }
+  h2
+  {
+    font-size: 125%;
+    font-weight: normal;
+  }
+}
+
+/*---------------------------------------*/
+/*------------- Typography --------------*/
+/*---------------------------------------*/
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Code+Pro|Montserrat);
+
+@main-font: "Source Code Pro";
+@header-font: "Montserrat";
+
+body
+{
+  font-family: @main-font;
+}
+h3
+{
+  font-size: 125%;
+  font-family: @header-font;
+  text-transform: uppercase;
+}
+h4
+{
+  font-size: 115%;
+  font-family: @header-font;
+  text-transform: uppercase;
+  margin: 15px 0 5px;
+}
+
+
+/*---------------------------------------*/
+/*--------------- Grid ------------------*/
+/*---------------------------------------*/
+.wrapper
+{
+  display: block;
+  margin: 0 auto;
+  padding: 20px 5%;
+  max-width: 1280px;
+}
+
+
+
+
+/*---------------------------------------*/
+/*--------------- COLORS ----------------*/
+/*---------------------------------------*/
+@red: rgb(139, 1, 9);
+@yellow: rgb(203, 149, 1);
+@green: rgb(57, 124, 31);
+@blue: rgb(28, 112, 149);
+@purple: rgb(74, 66, 126);
+
+// Special background color classes
+.blue
+{
+  background: fadeout(@blue, 30%);
+}
+.green
+{
+  background: fadeout(@green, 30%);
+}
+.yellow
+{
+  background: fadeout(@yellow, 30%);
+}
+
+/*---------------------------------------*/
+/*------------ COLOR-STRIPE -------------*/
+/*---------------------------------------*/
+.color-stripe-wrapper{width: 100%; overflow: hidden; z-index: 10; position: relative; top: 0;}
+.color-stripe
+{
+  background-color: @red;
+  overflow: hidden;
+  height: 8px;
+  width: 100%;
+  .clearfix;
+  span
+  {
+    display: block;
+    float: left;
+    height: 8px;
+    width: 20%;
+
+    &.green{ background-color: @green;}
+    &.yellow{ background-color: @yellow;}
+    &.blue{ background-color: @blue;}
+    &.purple{ background-color: @purple;}
+    &.red{ background-color: @red;}
+
+  }
+}
+
+
+/*----------------------------------------*/
+/*------------ Gist Syntax ---------------*/
+/*----------------------------------------*/
+.gist,
+.gist .gist-file .gist-data .line-pre
+{
+  font-family: @main-font !important;
+}
+.gist-syntax .nt,
+{
+  color: @blue !important;
+}
+.gist-syntax .na,
+.gist-syntax .m
+{
+  color: @green !important;
+}
+.gist-syntax .s,
+.gist-syntax .s2,
+.gist-syntax .o
+{
+  color: @red !important;
+}
+
+.gist-syntax .err
+{
+  color: #000 !important;
+  background: none !important;
+}
+
+.transition(@what: all, @duration:0.2s, @ease:ease-out) {
+  -webkit-transition: @what @duration @ease;
+  -moz-transition: @what @duration @ease;
+  -o-transition: @what @duration @ease;
+  transition: @what @duration @ease;
+}
+*
+{
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+  margin: 0;
+}
+
+.clearfix() {
+  zoom: 1;
+  &:before { content: ''; display: block; }
+  &:after { content: ''; display: table; clear: both; }
+}
