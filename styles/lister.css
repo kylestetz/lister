@@ -6,6 +6,10 @@ select.second {
   visibility: hidden;
   position: absolute;
 }
+select.fourth {
+  visibility: hidden;
+  position: absolute;
+}
 .result {
   padding: 15px;
   border-radius: 3px;
@@ -34,6 +38,47 @@ select.second {
   min-width: 150px;
   background: url("../img/arrow.png") 90% center no-repeat;
 }
+.purple {
+  height: 250px;
+}
+.purple div.lister-selected-top {
+  padding: 10px;
+  display: inline-block;
+  min-height: 42px;
+  min-width: 200px;
+  border-radius: 5px;
+  -webkit-box-shadow: 5px;
+  -moz-box-shadow: 5px;
+  background: #ffffff;
+  position: relative;
+}
+.purple div.lister-selected-top:after {
+  content: '<>';
+  font: 25px "Consolas", monospace;
+  color: #aaa;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  right: 8px;
+  top: 4px;
+  padding: 0 0 2px;
+  border-bottom: 1px solid #ddd;
+  position: absolute;
+  pointer-events: none;
+}
+.purple div.lister-selected-top:before {
+  content: '';
+  right: 6px;
+  top: 3px;
+  width: 27px;
+  height: 35px;
+  position: absolute;
+  pointer-events: none;
+  display: block;
+  background: #e1e1e1;
+  border-radius: 25px;
+}
 ul.lister.first {
   font-family: "Times New Roman", serif;
 }
@@ -54,6 +99,30 @@ ul.lister.second li {
 }
 ul.lister.second li:hover {
   background: #ccc;
+}
+ul.lister.fourth {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  display: none;
+  margin-top: 10px;
+  width: 200px;
+  padding: 5px 0;
+  list-style: none;
+  background: #ffffff;
+  height: 150px;
+  overflow: scroll;
+}
+ul.lister.fourth.lister-open {
+  display: block;
+}
+ul.lister.fourth li {
+  cursor: default;
+  padding: 2.5px 10px;
+}
+ul.lister.fourth li:hover {
+  background: rgba(74, 66, 126, 0.9);
+  color: #ffffff;
 }
 header {
   padding: 20px;
@@ -104,6 +173,9 @@ h4 {
 }
 .yellow {
   background: rgba(203, 149, 1, 0.7);
+}
+.purple {
+  background: rgba(74, 66, 126, 0.7);
 }
 /*---------------------------------------*/
 /*------------ COLOR-STRIPE -------------*/

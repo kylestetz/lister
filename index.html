@@ -110,30 +110,42 @@
         <span class="blue"></span>
       </div>
     </div>
-    <div class="red">
+    <div class="purple">
       <div class="wrapper">
-         <select class="third">
+         <select class="fourth">
           <option value="toyota">Toyota</option>
           <option value="honda">Honda</option>
           <option value="mitsibushi">Mitsibushi</option>
           <option value="kia">Kia</option>
-        </select>
+          <option value="ford">Ford</option>
+          <option value="lincoln">Lincoln</option>
+          <option value="chevy">Chevy</option>
+          <option value="dodge">Dodge</option>
+          <option value="toyota">Toyota</option>
+          <option value="honda">Honda</option>
+          <option value="mitsibushi">Mitsibushi</option>
+          <option value="kia">Kia</option>
+          <option value="ford">Ford</option>
+          <option value="lincoln">Lincoln</option>
+          <option value="chevy">Chevy</option>
+          <option value="dodge">Dodge</option>
+         </select>
       </div>
     </div>
 
     <script>
-			$(function() {
-
-				$(".first, .second").lister({
-          selectedTopOpenCallback: function(){console.log("Open!")},
-          selectedTopCloseCallback: function(){console.log("Close!")}
-        });
-        $(".third").lister({
-          listClass: "my-lister",
-          selectedClass: "my-lister-selected",
-          selectedTop: false,
-        });
-      });
+     $(function() {
+	 $(".first, .second").lister({
+             selectedTopOpenCallback: function(){console.log("Open!")},
+             selectedTopCloseCallback: function(){console.log("Close!")}
+         });
+         $(".third").lister({
+             listClass: "my-lister",
+             selectedClass: "my-lister-selected",
+             selectedTop: false,
+         });
+	 $(".fourth").lister();
+     });
     </script>
 
 

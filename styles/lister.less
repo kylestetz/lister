@@ -17,6 +17,11 @@ select
     visibility: hidden; //Make it invisible.
     position: absolute; //Make it have no height.
   }
+  &.fourth
+  {
+    visibility: hidden; //Make it invisible.
+    position: absolute; //Make it have no height.
+  }
 }
 .result {
   padding: 15px;
@@ -58,7 +63,47 @@ select
   min-height: 42px;
   min-width: 150px;
   background: url("../img/arrow.png") 90% center no-repeat;
-
+}
+.purple 
+{
+  height: 250px;
+  div.lister-selected-top
+  {
+    padding: 10px;
+    display: inline-block;
+    min-height: 42px;
+    min-width: 200px;
+    border-radius: 5px;
+    -webkit-box-shadow: 5px;
+    -moz-box-shadow: 5px; 
+    background: #ffffff;
+    position: relative;
+    &:after {
+      content:'<>';
+      font:25px "Consolas", monospace;
+      color:#aaa;
+      -webkit-transform:rotate(90deg);
+      -moz-transform:rotate(90deg);
+      -ms-transform:rotate(90deg);
+      transform:rotate(90deg);
+      right:8px; 
+      top:4px;
+      padding:0 0 2px;
+      border-bottom:1px solid #ddd;
+      position:absolute;
+      pointer-events:none;
+    }
+    &:before {
+      content:'';
+      right:6px; top:3px;
+      width:27px; height:35px;
+      position:absolute;
+      pointer-events:none;
+      display:block;
+      background: #e1e1e1;
+      border-radius: 25px;
+      }
+  }
 }
 ul.lister
 {
@@ -91,7 +136,36 @@ ul.lister
       }
     }
   }
+  &.fourth
+  {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    display: none;
+    margin-top: 10px;
+    width: 200px;
+    padding: 5px 0;
+    list-style: none;
+    background: #ffffff;
+    height: 150px;
+    overflow: scroll;
+    &.lister-open
+    {
+      display: block;
+    }
+    li
+    {
+      cursor: default;
+      padding: 2.5px 10px;
+      &:hover
+      {
+        background: fadeout(@purple, 10%);
+        color: #ffffff;
+      }
+    }
+  }  
 }
+
 
 // Stuff below here ought to be part of the gh-pages branch.
 
@@ -173,6 +247,10 @@ h4
 .yellow
 {
   background: fadeout(@yellow, 30%);
+}
+.purple
+{
+  background: fadeout(@purple, 30%);
 }
 
 /*---------------------------------------*/
