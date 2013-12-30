@@ -23,7 +23,6 @@
       populateSelectedTop: true,
       listClickCallback: function() {},
       selectedTopOpenCallback: function() {},
-      selectedTopCloseCallback: function() {}
 		};
 
 		// The actual plugin constructor
@@ -105,6 +104,10 @@
           // removing the class from all the list items.
           $listItem.removeClass(self.settings.selectedClass);
           $thisItem.addClass(self.settings.selectedClass);
+          // On click remove the parent class of openListClass
+          if ($thisItem.parent().hasClass(self.settings.openListClass)){
+              $thisItem.parent().removeClass(self.settings.openListClass);
+          }
 
           // For a given list item, find the equivalent
           // <option> in the original select item.
@@ -159,7 +162,6 @@
           // TO-DO: add callbacks on this click event.
           if ($nextList.hasClass(self.settings.openListClass)){
             $nextList.removeClass(self.settings.openListClass);
-            self.settings.selectedTopCloseCallback();
           } else {
             $nextList.addClass(self.settings.openListClass);
             self.settings.selectedTopOpenCallback();
