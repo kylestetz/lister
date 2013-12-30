@@ -47,6 +47,9 @@
         // Then, let's bind the UI back to the
         // original selects.
         self.listItemClick();
+        // We'll need a special check on the select
+        // item itself to pass info around appropriately.
+        self.selectItemClick();
 
         if (self.settings.selectedTop) {
           self.createSelectedTop();
@@ -131,6 +134,45 @@
           if (self.settings.listClickCallback) {
             self.settings.listClickCallback();
           }
+        });
+      },
+
+      selectItemClick: function() {
+        var self = this;
+
+        var $selects = self.$element;
+        var $selectOption = $selects.find("option");
+
+        // $selectOption.on("click", function(event){
+        //   console.log("I'm finally working");
+        //   var $thisOption = $(this);
+        //   var $thisSelect = $thisOption.parent("select");
+        //   var $thisList = $thisSelect.next("ul."+self.settings.listClass);
+        //   var $thisListItems = $thisList.find("li");
+        //   var $thisListItemEquivalent = $thisList.find("li").eq($thisOption.index());
+
+        //   $thisListItems.removeClass(self.setting.selectedClass);
+        //   $thisListItemEquivalent.addClass(self.setting.selectedClass);
+        // });
+
+        self.$element.on("change", function(event){
+          var $select = $(this);
+          console.log($select);
+          var selectValue = $select.val();
+          var $selectOptions = $select.find("option");
+          var $thisList = $select.next("ul."+self.settings.listClass);
+          var $thisListItems = $thisList.find("li");
+
+          var $selectedTop = $select.prev("."+self.settings.selectedTopWrapperClass);
+          $selectOptions.each(function(){
+            var $self = $(this);
+            if($self.val() === selectValue) {
+              var $thisListItemEquivalent = $thisList.find("li").eq($self.index());
+              $thisListItems.removeClass(self.settings.selectedClass);
+              $thisListItemEquivalent.addClass(self.settings.selectedClass);
+              $selectedTop.text($self.text());
+            }
+          })
         });
       },
 
