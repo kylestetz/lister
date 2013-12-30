@@ -133,6 +133,26 @@
       </div>
     </div>
 
+    <div class="color-stripe-wrapper">
+      <div class="color-stripe">
+        <span class="red"></span>
+        <span class="green"></span>
+        <span class="yellow"></span>
+        <span class="blue"></span>
+        <span class="purple"></span>
+      </div>
+    </div>
+    <div class="red">
+      <div class="wrapper">
+         <select class="fifth">
+          <option value="ford">Ford</option>
+          <option value="lincoln">Lincoln</option>
+          <option value="chevy">Chevy</option>
+          <option value="dodge">Dodge</option>
+         </select>
+      </div>
+    </div>
+
     <script>
      $(function() {
 	 $(".first, .second").lister({
@@ -144,7 +164,7 @@
              selectedClass: "my-lister-selected",
              selectedTop: false,
          });
-	 $(".fourth").lister();
+	 $(".fourth, .fifth").lister();
      });
     </script>
 

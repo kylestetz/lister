@@ -17,7 +17,7 @@ select
     visibility: hidden; //Make it invisible.
     position: absolute; //Make it have no height.
   }
-  &.fourth
+  &.fourth, &.fifth
   {
     visibility: hidden; //Make it invisible.
     position: absolute; //Make it have no height.
@@ -66,7 +66,13 @@ select
 }
 .purple 
 {
-  height: 250px;
+  height: 200px;
+  min-width: 150px;
+
+  .wrapper
+  {
+    position: relative; 
+  }
   div.lister-selected-top
   {
     padding: 10px;
@@ -103,6 +109,38 @@ select
       background: #e1e1e1;
       border-radius: 25px;
       }
+  }
+}
+.red 
+{
+  height: 450px;
+  div.lister-selected-top
+  {
+    padding: 30px;
+    display: inline-block;
+    min-height: 42px;
+    min-width: 300px;
+    border-radius: 1px;
+    -webkit-box-shadow: 5px;
+    -moz-box-shadow: 5px; 
+    background: #ffffff;
+    position: relative;
+    &:after
+    {
+      content:'<';
+      font:25px "Consolas", monospace;
+      color:#aaa;
+      -webkit-transform:rotate(90deg);
+      -moz-transform:rotate(90deg);
+      -ms-transform:rotate(90deg);
+      transform:rotate(90deg);
+      right:40px; 
+      top:4px;
+      padding:40px 0 2px;
+      position:absolute;
+      pointer-events:none;
+      height: 40px; 
+    }
   }
 }
 ul.lister
@@ -147,19 +185,57 @@ ul.lister
     padding: 5px 0;
     list-style: none;
     background: #ffffff;
-    height: 150px;
     overflow: scroll;
+    height: 150px;
+    position: absolute;
+    top: 30px;
+    box-shadow: 0px 0px 10px #000000;
     &.lister-open
     {
       display: block;
     }
     li
     {
-      cursor: default;
+      z-index: 1004; 
+      top: 65px; 
+      left: 0px; 
+      margin-left: 0px; 
+      opacity: 1; 
+      -webkit-transform: rotate(0deg); 
+      transition: all 300ms ease 160ms; 
+      -webkit-transition: all 300ms ease 160ms; 
+      width: 200px;
+      cursor: pointer;
       padding: 2.5px 10px;
       &:hover
       {
         background: fadeout(@purple, 10%);
+        color: #ffffff;
+      }
+    }
+  }  
+  &.fifth
+  {
+    margin-top: 10px;
+    width: 300px;
+    padding: 5px 0;
+    list-style: none;
+    height: 250px;
+    overflow: scroll;
+    display: none;
+    &.lister-open
+    {
+      display: block;
+    }
+    li
+    {
+      cursor: pointer;
+      padding: 10px 30px;
+      margin: 5px; 
+      background: #ffffff;
+      &:hover
+      {
+        background: fadeout(@red, 10%);
         color: #ffffff;
       }
     }
@@ -251,6 +327,10 @@ h4
 .purple
 {
   background: fadeout(@purple, 30%);
+}
+.red
+{
+  background: fadeout(@red, 30%);
 }
 
 /*---------------------------------------*/
