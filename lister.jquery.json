@@ -1,16 +1,16 @@
 {
   "name": "lister",
-  "title": "Lister.js",
-  "description": "A jQuery plugin to make lists from selects.",
+  "title": "Lister.js Github Page",
+  "description": "A Github Page for lister.js, a jQuery plugin to make lists from selects.",
   "keywords": [
     "lister",
-    "list",
-    "select"
+    "github",
+    "pages"
   ],
-  "version": "0.0.1",
+  "version": "0.5.0",
   "author": {
     "name": "Joel Smith",
-    "url": "https://github.com/jsumnersmith"
+    "url": "http://jsumnersmith.github.io/lister"
   },
   "licenses": [
     {

@@ -39,61 +39,18 @@ module.exports = function(grunt) {
       options: {
         livereload: true
       },
-      uglify: {
-        files: ['src/*.js'],
-        tasks: ['concat', 'uglify'],
-        options: {
-          spawn: false,
-          debounceDelay: 1000 // Don't call uglify more than once per second
-        }
-      },
       less: {
         files: ['styles/*.less'],
         tasks: ['less:development']
       }
     },
 
-
-		// Concat definitions
-		concat: {
-			dist: {
-				src: ["src/jquery.lister.js"],
-				dest: "dist/jquery.lister.js"
-			},
-			options: {
-				banner: "<%= meta.banner %>"
-			}
-		},
-
-		// Lint definitions
-		jshint: {
-			files: ["src/jquery.boilerplate.js"],
-			options: {
-				jshintrc: ".jshintrc"
-			}
-		},
-
-		// Minify definitions
-		uglify: {
-			my_target: {
-				src: ["dist/jquery.lister.js"],
-				dest: "dist/jquery.lister.min.js"
-			},
-			options: {
-				banner: "<%= meta.banner %>"
-			}
-		},
-
 	});
 
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks("grunt-contrib-concat");
-	grunt.loadNpmTasks("grunt-contrib-jshint");
-	grunt.loadNpmTasks("grunt-contrib-uglify");
 
 
-	grunt.registerTask("default", ["jshint", "concat", "uglify"]);
-	grunt.registerTask("travis", ["jshint"]);
+	grunt.registerTask("default", ["watch"]);
 
 };
