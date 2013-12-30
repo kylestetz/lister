@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Lister</title>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<script src="bower_components/jquery/jquery.js"></script>
 		<script src="src/jquery.lister.js"></script>
     <link rel="stylesheet" href="styles/lister.css">
   </head>
@@ -25,22 +25,23 @@
     </div>
     <div class="green">
       <div class="wrapper">
-        <h3>Example One | Markup Only</h3>
-        <p>In this example, we're only calling lister without adding any styles to either the select or the unordered list.</p>
+        <h3>Step One | Markup and jQuery</h3>
+        <p>In this step, we're only calling lister without adding any styles to either the select or the unordered list.</p>
+          <h4>Rendered</h4>
+            <div class="result one">
+              <form>
+                <select class="first">
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select>
+              </form>
+            </div>
           <h4>Code</h4>
-              <script src="https://gist.github.com/jsumnersmith/8115326.js"></script>
-              <script src="https://gist.github.com/jsumnersmith/8117244.js"></script>
-          <h4>Result</h4>
-          <div class="result one">
-            <form>
-              <select class="first">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-              </select>
-            </form>
-          </div>
+            <script src="https://gist.github.com/jsumnersmith/8115326.js"></script>
+            <script src="https://gist.github.com/jsumnersmith/8117244.js"></script>
+
       </div>
     </div>
 
@@ -56,26 +57,26 @@
     </div>
     <div class="yellow">
       <div class="wrapper">
-        <h3>Example Two | Markup and Styles</h3>
-        <p>In this example, we're calling lister and adding appropriate styles that hide the select and turn the unordered list into a select-style element.</p>
+        <h3>Step Two | Markup, jQuery and Styles</h3>
+        <p>Now that we've got the markup rendering from lister.js, we're adding appropriate styles that hide the select and turn the unordered list into a select-style element.</p>
+        <h4>Rendered</h4>
+          <div class="result two">
+            <form method="get">
+              <select class="second" name="two">
+                <option value="ford">Ford</option>
+                <option value="lincoln">Lincoln</option>
+                <option value="chevy">Chevy</option>
+                <option value="dodge">Dodge</option>
+              </select>
+              <p>Test the form by clicking submit. Your selection will appear
+              as a query string in the URL.</p>
+              <input type="submit" value="Submit">
+            </form>
+          </div>
         <h4>Code</h4>
-        <script src="https://gist.github.com/jsumnersmith/8126776.js"></script>
-        <script src="https://gist.github.com/jsumnersmith/8126762.js"></script>
-        <script src="https://gist.github.com/jsumnersmith/8148541.js"></script>
-        <h4>Result</h4>
-        <div class="result two">
-          <form method="get">
-            <select class="second" name="two">
-              <option value="ford">Ford</option>
-              <option value="lincoln">Lincoln</option>
-              <option value="chevy">Chevy</option>
-              <option value="dodge">Dodge</option>
-            </select>
-            <p>Test the form by clicking submit. Your selection will appear
-            as a query string in the URL.</p>
-            <input type="submit" value="Submit">
-          </form>
-        </div>
+          <script src="https://gist.github.com/jsumnersmith/8126776.js"></script>
+          <script src="https://gist.github.com/jsumnersmith/8126762.js"></script>
+          <script src="https://gist.github.com/jsumnersmith/8148541.js"></script>
       </div>
     </div>
 
@@ -91,12 +92,9 @@
     </div>
     <div class="blue">
       <div class="wrapper">
-         <select class="third">
-          <option value="toyota">Toyota</option>
-          <option value="honda">Honda</option>
-          <option value="mitsibushi">Mitsibushi</option>
-          <option value="kia">Kia</option>
-        </select>
+        <h3>Step Three | All the Options</h3>
+        <p>Now that we've got the basic markup and style for our lister selects, let's detail all the options.</p>
+        {# This will eventually just be a gist. #}
       </div>
     </div>
 
@@ -111,44 +109,48 @@
       </div>
     </div>
     <div class="purple">
-        <div class="wrapper">
-            <div class="left">
-                <select class="fourth">
-                    <option value="toyota">Toyota</option>
-                    <option value="honda">Honda</option>
-                    <option value="mitsibushi">Mitsibushi</option>
-                    <option value="kia">Kia</option>
-                    <option value="ford">Ford</option>
-                    <option value="lincoln">Lincoln</option>
-                    <option value="chevy">Chevy</option>
-                    <option value="dodge">Dodge</option>
-                    <option value="toyota">Toyota</option>
-                    <option value="honda">Honda</option>
-                    <option value="mitsibushi">Mitsibushi</option>
-                    <option value="kia">Kia</option>
-                    <option value="ford">Ford</option>
-                    <option value="lincoln">Lincoln</option>
-                    <option value="chevy">Chevy</option>
-                    <option value="dodge">Dodge</option>
-                </select>
-            </div>
-            <div class="middle">
-                <select class="fifth">
-                    <option value="ford">Ford</option>
-                    <option value="lincoln">Lincoln</option>
-                    <option value="chevy">Chevy</option>
-                    <option value="dodge">Dodge</option>
-                </select>
-            </div>
-            <div class="right">
-                <select class="sixth">
-                    <option value="ford">Ford</option>
-                    <option value="lincoln">Lincoln</option>
-                    <option value="chevy">Chevy</option>
-                    <option value="dodge">Dodge</option>
-                </select>
-            </div>
+      <div class="wrapper">
+        <h3>Galleries of Styled Listers</h3>
+        <div class="left">
+          <p>Submitted by <a data-username="fuhton">Nicholas Smith</a></p>
+          <select class="fourth">
+            <option value="toyota">Toyota</option>
+            <option value="honda">Honda</option>
+            <option value="mitsibushi">Mitsibushi</option>
+            <option value="kia">Kia</option>
+            <option value="ford">Ford</option>
+            <option value="lincoln">Lincoln</option>
+            <option value="chevy">Chevy</option>
+            <option value="dodge">Dodge</option>
+            <option value="toyota">Toyota</option>
+            <option value="honda">Honda</option>
+            <option value="mitsibushi">Mitsibushi</option>
+            <option value="kia">Kia</option>
+            <option value="ford">Ford</option>
+            <option value="lincoln">Lincoln</option>
+            <option value="chevy">Chevy</option>
+            <option value="dodge">Dodge</option>
+          </select>
         </div>
+        <div class="middle">
+          <p>Submitted by <a data-username="fuhton">Nicholas Smith</a></p>
+          <select class="fifth">
+            <option value="ford">Ford</option>
+            <option value="lincoln">Lincoln</option>
+            <option value="chevy">Chevy</option>
+            <option value="dodge">Dodge</option>
+          </select>
+        </div>
+        <div class="right">
+          <p>Submitted by <a data-username="fuhton">Nicholas Smith</a></p>
+          <select class="sixth">
+            <option value="ford">Ford</option>
+            <option value="lincoln">Lincoln</option>
+            <option value="chevy">Chevy</option>
+            <option value="dodge">Dodge</option>
+          </select>
+        </div>
+      </div>
     </div>
 
     <div class="color-stripe-wrapper">
@@ -162,22 +164,21 @@
     </div>
     <div class="red">
       <div class="wrapper">
+        <p>&copy;2013 Joel Sumner Smith. Created by Joel Smith from <a href="http://punkave.com">P'unk Avenue</a> in Philadelphia.</p>
+        <p>Thanks are due both to Nick Smith and Kyle Stetz for their help in getting this project off the ground.</p>
       </div>
     </div>
 
     <script>
      $(function() {
-	 $(".first, .second").lister({
-             selectedTopOpenCallback: function(){console.log("Open!")},
-             selectedTopCloseCallback: function(){console.log("Close!")}
-         });
-         $(".third").lister({
-             listClass: "my-lister",
-             selectedClass: "my-lister-selected",
-             selectedTop: false,
-         });
-	 $(".fourth, .fifth, .sixth").lister();
-     });
+    	$(".first, .second").lister();
+      $(".third").lister({
+        listClass: "my-lister",
+        selectedClass: "my-lister-selected",
+        selectedTop: false,
+      });
+    	$(".fourth, .fifth, .sixth").lister();
+      });
     </script>
 
 
