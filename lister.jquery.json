@@ -1,0 +1,27 @@
+{
+  "name": "lister",
+  "title": "Lister.js",
+  "description": "A jQuery plugin to make lists from selects.",
+  "keywords": [
+    "lister",
+    "list",
+    "select"
+  ],
+  "version": "0.0.1",
+  "author": {
+    "name": "Joel Smith",
+    "url": "https://github.com/jsumnersmith"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "bugs": "https://github.com/lister/issues",
+  "homepage": "http://jsumnersmith.github.io/lister",
+  "docs": "https://github.com/jsumnersmith/lister#readme",
+  "download": "https://github.com/jsumnersmith/lister/archive/master.zip",
+  "dependencies": {
+    "jquery": ">=1.9"
+  }
+}
