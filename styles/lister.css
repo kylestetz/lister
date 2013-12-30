@@ -7,8 +7,10 @@ select.second {
   position: absolute;
 }
 select.fourth,
-select.fifth {
-  visibility: hidden;
+select.fifth,
+select.sixth {
+  visibility: hidden !important;
+  display: none;
   position: absolute;
 }
 .result {
@@ -40,13 +42,17 @@ select.fifth {
   background: url("../img/arrow.png") 90% center no-repeat;
 }
 .purple {
-  height: 200px;
+  height: 500px;
   min-width: 150px;
 }
 .purple .wrapper {
   position: relative;
 }
-.purple div.lister-selected-top {
+.purple .wrapper .left {
+  display: inline-block;
+  width: 32%;
+}
+.purple .wrapper .left div.lister-selected-top {
   padding: 10px;
   display: inline-block;
   min-height: 42px;
@@ -57,7 +63,7 @@ select.fifth {
   background: #ffffff;
   position: relative;
 }
-.purple div.lister-selected-top:after {
+.purple .wrapper .left div.lister-selected-top:after {
   content: '<>';
   font: 25px "Consolas", monospace;
   color: #aaa;
@@ -72,7 +78,7 @@ select.fifth {
   position: absolute;
   pointer-events: none;
 }
-.purple div.lister-selected-top:before {
+.purple .wrapper .left div.lister-selected-top:before {
   content: '';
   right: 6px;
   top: 3px;
@@ -84,10 +90,11 @@ select.fifth {
   background: #e1e1e1;
   border-radius: 25px;
 }
-.red {
-  height: 450px;
+.purple .wrapper .middle {
+  display: inline-block;
+  width: 32%;
 }
-.red div.lister-selected-top {
+.purple .wrapper .middle div.lister-selected-top {
   padding: 30px;
   display: inline-block;
   min-height: 42px;
@@ -98,8 +105,8 @@ select.fifth {
   background: #ffffff;
   position: relative;
 }
-.red div.lister-selected-top:after {
-  content: '<';
+.purple .wrapper .middle div.lister-selected-top:after {
+  content: '>';
   font: 25px "Consolas", monospace;
   color: #aaa;
   -webkit-transform: rotate(90deg);
@@ -112,6 +119,42 @@ select.fifth {
   position: absolute;
   pointer-events: none;
   height: 40px;
+}
+.purple .right {
+  display: inline-block;
+  width: 25%;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.4s;
+  -moz-transition: -moz-transform 0.4s;
+  transition: transform 0.4s;
+}
+.purple .right div.lister-selected-top {
+  display: inline-block;
+  min-height: 300px;
+  width: 300px;
+  background: #ffffff;
+  position: relative;
+  text-align: center;
+  padding-top: 50%;
+}
+.purple .right:hover {
+  -webkit-transform: translateX(25%);
+  -moz-transform: translateX(25%);
+  -ms-transform: translateX(25%);
+  transform: translateX(25%);
+  -webkit-transition: 0;
+  -moz-transition: 0;
+  transition: 0;
+}
+.purple .right:hover div.lister-selected-top {
+  width: 228px;
+}
+.purple .right:hover .sixth {
+  transition: opacity .5s;
+  -webkit-transition: opacity .5s;
+  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 ul.lister.first {
   font-family: "Times New Roman", serif;
@@ -139,29 +182,20 @@ ul.lister.fourth {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   display: none;
-  margin-top: 10px;
   width: 200px;
   padding: 5px 0;
   list-style: none;
   background: #ffffff;
   overflow: scroll;
   height: 150px;
-  position: absolute;
-  top: 30px;
+  top: 195px;
   box-shadow: 0px 0px 10px #000000;
+  position: absolute;
 }
 ul.lister.fourth.lister-open {
   display: block;
 }
 ul.lister.fourth li {
-  z-index: 1004;
-  top: 65px;
-  left: 0px;
-  margin-left: 0px;
-  opacity: 1;
-  -webkit-transform: rotate(0deg);
-  transition: all 300ms ease 160ms;
-  -webkit-transition: all 300ms ease 160ms;
   width: 200px;
   cursor: pointer;
   padding: 2.5px 10px;
@@ -178,6 +212,7 @@ ul.lister.fifth {
   height: 250px;
   overflow: scroll;
   display: none;
+  position: absolute;
 }
 ul.lister.fifth.lister-open {
   display: block;
@@ -189,7 +224,31 @@ ul.lister.fifth li {
   background: #ffffff;
 }
 ul.lister.fifth li:hover {
-  background: rgba(139, 1, 9, 0.9);
+  background: rgba(74, 66, 126, 0.9);
+  color: #ffffff;
+}
+ul.lister.sixth {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.1s ease-out;
+  -webkit-transition: all 0.1s ease-out;
+  margin-top: 10px;
+  width: 140px;
+  padding: 5px 0;
+  list-style: none;
+  height: 300px;
+  position: absolute;
+  top: -10px;
+  left: -100px;
+  background: #f1f1f1;
+}
+ul.lister.sixth li {
+  cursor: pointer;
+  padding: 10px 30px;
+  background: #f1f1f1;
+}
+ul.lister.sixth li:hover {
+  background: rgba(74, 66, 126, 0.9);
   color: #ffffff;
 }
 header {
