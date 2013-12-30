@@ -43,14 +43,13 @@ select.sixth {
 }
 .purple {
   height: 500px;
-  min-width: 150px;
 }
-.purple .wrapper {
-  position: relative;
-}
-.purple .wrapper .left {
+.purple .wrapper .left,
+.purple .wrapper .middle,
+.purple .wrapper .right {
   display: inline-block;
   width: 32%;
+  position: relative;
 }
 .purple .wrapper .left div.lister-selected-top {
   padding: 10px;
@@ -58,25 +57,25 @@ select.sixth {
   min-height: 42px;
   min-width: 200px;
   border-radius: 5px;
-  -webkit-box-shadow: 5px;
   -moz-box-shadow: 5px;
+  -webkit-box-shadow: 5px;
+  box-shadow: 5px;
   background: #ffffff;
   position: relative;
 }
 .purple .wrapper .left div.lister-selected-top:after {
   content: '<>';
-  font: 25px "Consolas", monospace;
-  color: #aaa;
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
+  font: 25px "Consolas", monospace;
+  color: #aaa;
   right: 8px;
   top: 4px;
   padding: 0 0 2px;
   border-bottom: 1px solid #ddd;
   position: absolute;
-  pointer-events: none;
 }
 .purple .wrapper .left div.lister-selected-top:before {
   content: '';
@@ -90,43 +89,32 @@ select.sixth {
   background: #e1e1e1;
   border-radius: 25px;
 }
-.purple .wrapper .middle {
-  display: inline-block;
-  width: 32%;
-}
 .purple .wrapper .middle div.lister-selected-top {
   padding: 30px;
   display: inline-block;
   min-height: 42px;
   min-width: 300px;
   border-radius: 1px;
-  -webkit-box-shadow: 5px;
   -moz-box-shadow: 5px;
+  -webkit-box-shadow: 5px;
+  box-shadow: 5px;
   background: #ffffff;
   position: relative;
 }
 .purple .wrapper .middle div.lister-selected-top:after {
   content: '>';
-  font: 25px "Consolas", monospace;
-  color: #aaa;
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
+  font: 25px "Consolas", monospace;
+  color: #aaa;
   right: 40px;
   top: 4px;
   padding: 40px 0 2px;
   position: absolute;
   pointer-events: none;
   height: 40px;
-}
-.purple .right {
-  display: inline-block;
-  width: 25%;
-  position: relative;
-  -webkit-transition: -webkit-transform 0.4s;
-  -moz-transition: -moz-transform 0.4s;
-  transition: transform 0.4s;
 }
 .purple .right div.lister-selected-top {
   display: inline-block;
@@ -135,19 +123,11 @@ select.sixth {
   background: #ffffff;
   position: relative;
   text-align: center;
-  padding-top: 50%;
-}
-.purple .right:hover {
-  -webkit-transform: translateX(25%);
-  -moz-transform: translateX(25%);
-  -ms-transform: translateX(25%);
-  transform: translateX(25%);
-  -webkit-transition: 0;
-  -moz-transition: 0;
-  transition: 0;
+  padding-top: 140px;
 }
 .purple .right:hover div.lister-selected-top {
-  width: 228px;
+  text-align: right;
+  padding-right: 75px;
 }
 .purple .right:hover .sixth {
   transition: opacity .5s;
@@ -188,7 +168,7 @@ ul.lister.fourth {
   background: #ffffff;
   overflow: scroll;
   height: 150px;
-  top: 195px;
+  top: 40px;
   box-shadow: 0px 0px 10px #000000;
   position: absolute;
 }
@@ -239,7 +219,6 @@ ul.lister.sixth {
   height: 300px;
   position: absolute;
   top: -10px;
-  left: -100px;
   background: #f1f1f1;
 }
 ul.lister.sixth li {
@@ -289,6 +268,9 @@ h4 {
   padding: 20px 5%;
   max-width: 1280px;
 }
+/*---------------------------------------*/
+/*--------------- Mixins ----------------*/
+/*---------------------------------------*/
 /*---------------------------------------*/
 /*--------------- COLORS ----------------*/
 /*---------------------------------------*/

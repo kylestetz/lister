@@ -68,15 +68,16 @@ select
 .purple 
 {
   height: 500px;
-  min-width: 150px;
-
   .wrapper
   {
-    position: relative; 
-    .left
+    .left, .middle, .right
     {
       display: inline-block;
       width: 32%;
+      position: relative;
+    }
+    .left
+    {
       div.lister-selected-top
       {
         padding: 10px;
@@ -84,24 +85,16 @@ select
         min-height: 42px;
         min-width: 200px;
         border-radius: 5px;
-        -webkit-box-shadow: 5px;
-        -moz-box-shadow: 5px; 
+        .box-shadow(5px);
         background: #ffffff;
         position: relative;
         &:after {
           content:'<>';
-          font:25px "Consolas", monospace;
-          color:#aaa;
-          -webkit-transform:rotate(90deg);
-          -moz-transform:rotate(90deg);
-          -ms-transform:rotate(90deg);
-          transform:rotate(90deg);
-          right:8px; 
-          top:4px;
+          .text_transform(90deg);
+          right:8px; top:4px;
           padding:0 0 2px;
           border-bottom:1px solid #ddd;
           position:absolute;
-          pointer-events:none;
         }
         &:before {
           content:'';
@@ -117,9 +110,6 @@ select
     }
     .middle
     {
-      display: inline-block;
-      width: 32%;
-
       div.lister-selected-top
       {
         padding: 30px;
@@ -127,19 +117,13 @@ select
         min-height: 42px;
         min-width: 300px;
         border-radius: 1px;
-        -webkit-box-shadow: 5px;
-        -moz-box-shadow: 5px; 
+        .box-shadow(5px);;
         background: #ffffff;
         position: relative;
         &:after
         {
           content:'>';
-          font:25px "Consolas", monospace;
-          color:#aaa;
-          -webkit-transform:rotate(90deg);
-          -moz-transform:rotate(90deg);
-          -ms-transform:rotate(90deg);
-          transform:rotate(90deg);
+          .text_transform(90deg);
           right:40px; 
           top:4px;
           padding:40px 0 2px;
@@ -152,13 +136,6 @@ select
   }
   .right
   {
-    display: inline-block;
-    width: 25%;
-    position: relative;
-      -webkit-transition: -webkit-transform 0.4s;
-      -moz-transition: -moz-transform 0.4s;
-      transition: transform 0.4s;
-
     div.lister-selected-top
     {
       display: inline-block;
@@ -167,21 +144,14 @@ select
       background: #ffffff;
       position: relative;
       text-align: center;
-      padding-top: 50%; 
+      padding-top: 140px; 
     }
     &:hover
     {
-      -webkit-transform: translateX(25%);
-      -moz-transform: translateX(25%);
-      -ms-transform: translateX(25%);
-      transform: translateX(25%);
-      -webkit-transition:0;
-      -moz-transition: 0;
-      transition: 0;
-
       div.lister-selected-top
       {
-        width: 228px; 
+        text-align: right;
+        padding-right: 75px;
       }
       .sixth {
         transition: opacity .5s;
@@ -237,7 +207,7 @@ ul.lister
     overflow: scroll;
     height: 150px;
     position: absolute;
-    top: 195px;
+    top: 40px;
     box-shadow: 0px 0px 10px #000000;
     position: absolute;
     &.lister-open
@@ -296,7 +266,6 @@ ul.lister
     height: 300px;
     position: absolute;
     top: -10px;
-    left: -100px;
     background: #f1f1f1;
     &.lister-open
     {
@@ -373,6 +342,27 @@ h4
 }
 
 
+
+/*---------------------------------------*/
+/*--------------- Mixins ----------------*/
+/*---------------------------------------*/
+
+.text_transform (@degree)
+{
+  -webkit-transform:rotate(@degree);
+  -moz-transform:rotate(@degree);
+  -ms-transform:rotate(@degree);
+  transform:rotate(@degree);
+  font:25px "Consolas", monospace;
+  color:#aaa;
+}
+
+.box-shadow (@px)
+{
+  -moz-box-shadow: @px;
+  -webkit-box-shadow: @px;
+  box-shadow: @px;
+}
 
 
 /*---------------------------------------*/
