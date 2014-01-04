@@ -14,7 +14,7 @@
       selectedTopWrapperClass: "lister-selected-top",
       populateSelectedTop: true,
       listClickCallback: function() {},
-      selectedTopOpenCallback: function() {},
+      selectedTopClickCallback: function() {},
     };
 
     // The actual plugin constructor
