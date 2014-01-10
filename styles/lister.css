@@ -41,15 +41,25 @@ select.sixth {
   min-width: 150px;
   background: url("../img/arrow.png") 90% center no-repeat;
 }
-.purple {
-  height: 500px;
-}
 .purple .wrapper .left,
 .purple .wrapper .middle,
 .purple .wrapper .right {
   display: inline-block;
-  width: 32%;
+  width: 100%;
   position: relative;
+  min-height: 300px;
+}
+.purple .wrapper .left p,
+.purple .wrapper .middle p,
+.purple .wrapper .right p {
+  margin-bottom: 10px;
+}
+@media only screen and (min-width: 768px) {
+  .purple .wrapper .left,
+  .purple .wrapper .middle,
+  .purple .wrapper .right {
+    width: 32%;
+  }
 }
 .purple .wrapper .left div.lister-selected-top {
   padding: 10px;
@@ -212,7 +222,7 @@ ul.lister.sixth {
   opacity: 0;
   transition: all 0.1s ease-out;
   -webkit-transition: all 0.1s ease-out;
-  margin-top: 10px;
+  margin-top: 40px;
   width: 140px;
   padding: 5px 0;
   list-style: none;
