@@ -149,7 +149,6 @@
 
         self.$element.on("change", function(event){
           var $select = $(this);
-          console.log($select);
           var selectValue = $select.val();
           var $selectOptions = $select.find("option");
           var $thisList = $select.next("ul."+self.settings.listClass);
@@ -182,8 +181,9 @@
         var $nextList = $nextSelect.next("ul");
 
         if (self.settings.populateSelectedTop) {
-           var $firstOption = $nextSelect.children("option").first();
-          $selectedTop.text($firstOption.text());
+          var selectedIndex = $nextSelect[0].selectedIndex;
+          var $selectedOption = $nextSelect.children("option").eq(selectedIndex);
+          $selectedTop.text($selectedOption.text());
         }
       },
 
