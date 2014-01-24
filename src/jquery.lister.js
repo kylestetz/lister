@@ -14,7 +14,8 @@
       selectedTopWrapperClass: "lister-selected-top",
       populateSelectedTop: true,
       listClickCallback: function() {},
-      selectedTopOpenCallback: function() {},
+      selectedTopOpenCallback: function(self) {},
+      selectedTopCloseCallback: function(self) {}
 		};
 
 		// The actual plugin constructor
@@ -196,9 +197,10 @@
           // TO-DO: add callbacks on this click event.
           if ($nextList.hasClass(self.settings.openListClass)){
             $nextList.removeClass(self.settings.openListClass);
+            self.settings.selectedTopCloseCallback(self);
           } else {
             $nextList.addClass(self.settings.openListClass);
-            self.settings.selectedTopOpenCallback();
+            self.settings.selectedTopOpenCallback(self);
           }
         });
       }
