@@ -91,11 +91,13 @@
         var $listItem = $list.find("li");
 
         // Create a click event for the list items.
-        $listItem.click(function(){
+        $listItem.click(function(event){
           // Cache the clicked item
           var $thisItem = $(this);
           // For a given list item, find the preceding <select>
           var $thisItemSelect = $thisItem.parent().prev(self.$element);
+          // Stop this click event from bubbling up the DOM
+          event.stopPropagation();
           // Add the selected class to the clicked item after
           // removing the class from all the list items.
           $listItem.removeClass(self.settings.selectedClass);
@@ -193,7 +195,9 @@
         var $selectedTop = $(self.$element.prev("."+self.settings.selectedTopWrapperClass));
         var $nextSelect = $selectedTop.next("select");
         var $nextList = $nextSelect.next("ul");
-        $selectedTop.click(function(){
+        $selectedTop.click(function(event){
+          // Stop this click event from bubbling up the DOM
+          event.stopPropagation();
           // TO-DO: add callbacks on this click event.
           if ($nextList.hasClass(self.settings.openListClass)){
             $nextList.removeClass(self.settings.openListClass);
@@ -201,6 +205,21 @@
           } else {
             $nextList.addClass(self.settings.openListClass);
             self.settings.selectedTopOpenCallback(self);
+          }
+        });
+      },
+      // close the list if the list is open and you click elsewhere
+      elsewhereClick: function() {
+        var self = this;
+        var $elsewhere = $('html');
+        var $list = $("ul."+self.settings.listClass);
+
+        $elsewhere.click(function() {
+          if ($list.hasClass(self.settings.openListClass)){
+            $list.removeClass(self.settings.openListClass);
+            self.settings.selectedTopCloseCallback(self);
+          } else {
+            return null;
           }
         });
       }
