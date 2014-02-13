@@ -43,6 +43,9 @@
             // We'll need a special check on the select
             // item itself to pass info around appropriately.
             self.selectItemClick();
+            //Add the click event that will close lister
+            //when we click elsewhere on page
+            self.elsewhereClick();
 
             if (self.settings.selectedTop) {
                 self.createSelectedTop();
@@ -75,8 +78,8 @@
                 // above the <ul> to house the selected item.
                 if (self.settings.selectedTop) {
                 }
-            })
-                },
+            });
+        },
 
         listItemClick: function() {
             // Cache the constructor object
