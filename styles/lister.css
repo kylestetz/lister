@@ -41,31 +41,39 @@ select.sixth {
   min-width: 150px;
   background: url("../img/arrow.png") 90% center no-repeat;
 }
-.purple .wrapper .left,
-.purple .wrapper .middle,
-.purple .wrapper .right {
-  display: inline-block;
+.purple {
+  float: left;
+  position: relative;
+  width: 100%;
+}
+.purple .wrapper .example {
   width: 100%;
   position: relative;
-  min-height: 300px;
+  height: 450px;
+  margin: 0;
+  padding: 0;
+  float: left;
 }
-.purple .wrapper .left p,
-.purple .wrapper .middle p,
-.purple .wrapper .right p {
+.purple .wrapper .example p {
   margin-bottom: 10px;
 }
-@media only screen and (min-width: 768px) {
-  .purple .wrapper .left,
-  .purple .wrapper .middle,
-  .purple .wrapper .right {
-    width: 32%;
-  }
+.purple .wrapper .example .lister-selected-top {
+  width: 100%;
 }
-.purple .wrapper .left div.lister-selected-top {
+.purple .wrapper .example .lister {
+  width: 100%;
+}
+.purple .wrapper .example .expo {
+  position: absolute;
+  bottom: 0;
+  border: 2px solid;
   padding: 10px;
-  display: inline-block;
+  z-index: -1;
+}
+.purple .wrapper .example.left div.lister-selected-top {
+  padding: 10px;
+  margin: 0;
   min-height: 42px;
-  min-width: 200px;
   border-radius: 5px;
   -moz-box-shadow: 5px;
   -webkit-box-shadow: 5px;
@@ -73,7 +81,7 @@ select.sixth {
   background: #ffffff;
   position: relative;
 }
-.purple .wrapper .left div.lister-selected-top:after {
+.purple .wrapper .example.left div.lister-selected-top:after {
   content: '<>';
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
@@ -87,7 +95,7 @@ select.sixth {
   border-bottom: 1px solid #ddd;
   position: absolute;
 }
-.purple .wrapper .left div.lister-selected-top:before {
+.purple .wrapper .example.left div.lister-selected-top:before {
   content: '';
   right: 6px;
   top: 3px;
@@ -95,15 +103,38 @@ select.sixth {
   height: 35px;
   position: absolute;
   pointer-events: none;
-  display: block;
   background: #e1e1e1;
   border-radius: 25px;
 }
-.purple .wrapper .middle div.lister-selected-top {
+.purple .wrapper .example.left .lister {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  display: none;
+  padding: 5px 0;
+  list-style: none;
+  background: #ffffff;
+  overflow: scroll;
+  height: 150px;
+  top: 40px;
+  box-shadow: 0px 0px 10px #000000;
+  position: absolute;
+}
+.purple .wrapper .example.left .lister.lister-open {
+  display: block;
+}
+.purple .wrapper .example.left .lister li {
+  cursor: pointer;
+  padding: 2.5px 10px;
+}
+.purple .wrapper .example.left .lister li:hover {
+  background: rgba(74, 66, 126, 0.9);
+  color: #ffffff;
+}
+.purple .wrapper .example.middle div.lister-selected-top {
   padding: 30px;
   display: inline-block;
   min-height: 42px;
-  min-width: 300px;
   border-radius: 1px;
   -moz-box-shadow: 5px;
   -webkit-box-shadow: 5px;
@@ -111,7 +142,7 @@ select.sixth {
   background: #ffffff;
   position: relative;
 }
-.purple .wrapper .middle div.lister-selected-top:after {
+.purple .wrapper .example.middle div.lister-selected-top:after {
   content: '>';
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
@@ -126,25 +157,68 @@ select.sixth {
   pointer-events: none;
   height: 40px;
 }
-.purple .right div.lister-selected-top {
+.purple .wrapper .example.middle .lister {
+  margin-top: 10px;
+  padding: 5px 0;
+  list-style: none;
+  height: 250px;
+  display: none;
+  position: absolute;
+}
+.purple .wrapper .example.middle .lister.lister-open {
+  display: block;
+}
+.purple .wrapper .example.middle .lister li {
+  cursor: pointer;
+  padding: 10px 30px;
+  margin: 5px;
+  background: #ffffff;
+}
+.purple .wrapper .example.middle .lister li:hover {
+  background: rgba(74, 66, 126, 0.9);
+  color: #ffffff;
+}
+.purple .wrapper .example.right div.lister-selected-top {
   display: inline-block;
   min-height: 300px;
-  width: 300px;
   background: #ffffff;
   position: relative;
   text-align: center;
   padding-top: 140px;
 }
-.purple .right:hover div.lister-selected-top {
+.purple .wrapper .example.right:hover div.lister-selected-top {
   text-align: right;
-  padding-right: 75px;
+  padding-right: 25%;
 }
-.purple .right:hover .sixth {
+.purple .wrapper .example.right:hover .sixth {
   transition: opacity .5s;
   -webkit-transition: opacity .5s;
   display: block;
   opacity: 1;
   visibility: visible;
+}
+.purple .wrapper .example.right .lister {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.1s ease-out;
+  -webkit-transition: all 0.1s ease-out;
+  margin-top: 40px;
+  width: 140px;
+  padding: 5px 0;
+  list-style: none;
+  height: 300px;
+  position: absolute;
+  top: -10px;
+  background: #f1f1f1;
+}
+.purple .wrapper .example.right .lister li {
+  cursor: pointer;
+  padding: 10px 30px;
+  background: #f1f1f1;
+}
+.purple .wrapper .example.right .lister li:hover {
+  background: rgba(74, 66, 126, 0.9);
+  color: #ffffff;
 }
 ul.lister.first {
   font-family: "Times New Roman", serif;
@@ -166,79 +240,6 @@ ul.lister.second li {
 }
 ul.lister.second li:hover {
   background: #ccc;
-}
-ul.lister.fourth {
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  display: none;
-  width: 200px;
-  padding: 5px 0;
-  list-style: none;
-  background: #ffffff;
-  overflow: scroll;
-  height: 150px;
-  top: 40px;
-  box-shadow: 0px 0px 10px #000000;
-  position: absolute;
-}
-ul.lister.fourth.lister-open {
-  display: block;
-}
-ul.lister.fourth li {
-  width: 200px;
-  cursor: pointer;
-  padding: 2.5px 10px;
-}
-ul.lister.fourth li:hover {
-  background: rgba(74, 66, 126, 0.9);
-  color: #ffffff;
-}
-ul.lister.fifth {
-  margin-top: 10px;
-  width: 300px;
-  padding: 5px 0;
-  list-style: none;
-  height: 250px;
-  overflow: scroll;
-  display: none;
-  position: absolute;
-}
-ul.lister.fifth.lister-open {
-  display: block;
-}
-ul.lister.fifth li {
-  cursor: pointer;
-  padding: 10px 30px;
-  margin: 5px;
-  background: #ffffff;
-}
-ul.lister.fifth li:hover {
-  background: rgba(74, 66, 126, 0.9);
-  color: #ffffff;
-}
-ul.lister.sixth {
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.1s ease-out;
-  -webkit-transition: all 0.1s ease-out;
-  margin-top: 40px;
-  width: 140px;
-  padding: 5px 0;
-  list-style: none;
-  height: 300px;
-  position: absolute;
-  top: -10px;
-  background: #f1f1f1;
-}
-ul.lister.sixth li {
-  cursor: pointer;
-  padding: 10px 30px;
-  background: #f1f1f1;
-}
-ul.lister.sixth li:hover {
-  background: rgba(74, 66, 126, 0.9);
-  color: #ffffff;
 }
 header {
   padding: 80px 0;
@@ -308,6 +309,7 @@ h4 {
   z-index: 10;
   position: relative;
   top: 0;
+  clear: both;
 }
 .color-stripe {
   background-color: #8b0109;
@@ -374,4 +376,21 @@ h4 {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
+}
+/*----------------------------------------*/
+/*------------ Media Query ---------------*/
+/*----------------------------------------*/
+@media only screen and (min-width: 768px) {
+  .purple .wrapper .example {
+    width: 31%;
+    margin: 5% 1%;
+  }
+}
+@media only screen and (max-width: 967px) and (min-width: 768px) {
+  .purple .wrapper .example.left .lister {
+    top: 60px;
+  }
+  .purple .wrapper .example.right:hover .sixth {
+    top: 10px;
+  }
 }
