@@ -87,7 +87,7 @@
 
             // Create the jQuery object of all appropriates
             // lists given a list class.
-            var $list = $("ul."+self.settings.listClass);
+            var $list = self.$element.siblings("ul."+self.settings.listClass);
 
             // Create the jQuery object of all appropriate
             // list items, given a list class.
@@ -215,7 +215,7 @@
         elsewhereClick: function() {
             var self = this;
             var $elsewhere = $('html');
-            var $list = $("ul."+self.settings.listClass);
+            var $list = self.$element.siblings("ul."+self.settings.listClass);
 
             $elsewhere.click(function() {
                 if ($list.hasClass(self.settings.openListClass)){
