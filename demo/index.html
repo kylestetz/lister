@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Lister</title>
-		<script src="../bower_components/jquery/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<script src="../src/jquery.lister.js"></script>
     <link rel="stylesheet" href="styles/lister.css">
   </head>
@@ -46,7 +46,7 @@
     <div class="yellow">
       <div class="wrapper">
         <h3>Example Two | Markup and Styles</h3>
-        <p>In this example, we're calling lister and adding appropriate styles that hide the select and turn the unordered list into a select-style element.</p>
+        <p>In this example, we're calling lister and adding appropriate styles that hide the select and turn the unordered list into a select-style element. You will also see change events on the select element logged.</p>
         <h4>Code</h4>
         <h4>Result</h4>
         <div class="result two">
@@ -60,6 +60,8 @@
             <p>Test the form by clicking submit. Your selection will appear
             as a query string in the URL.</p>
             <input type="submit" value="Submit">
+            <h4>Change Event Log</h4>
+            <pre class="change-event-log"></pre>
           </form>
         </div>
       </div>
@@ -92,6 +94,9 @@
 				$(".first, .second").lister({
           selectedTopOpenCallback: function(){console.log("Open!")},
           selectedTopCloseCallback: function(){console.log("Close!")}
+        });
+        $(".second").on('change', function() {
+          $('.change-event-log').append('change event, new value is: ' + $(this).val() + "\n");
         });
         $(".third").lister({
           listClass: "my-lister",
