@@ -1,3 +1,11 @@
+/*
+ *  Lister.js - v0.5.0
+ *  A jQuery plugin to make lists from selects.
+ *  http://jsumnersmith.github.io/lister
+ *
+ *  Made by Joel Smith
+ *  Under MIT License
+ */
 // the semi-colon before function invocation is a safety net against concatenated
 // scripts and/or other plugins which may not be closed properly.
 ;(function ( $, window, document, undefined ) {
@@ -37,9 +45,7 @@
             var self = this;
             // First let's create the markup
             self.cloneSelect();
-            // Then, let's bind the UI back to the
-            // original selects.
-            self.listItemClick();
+
             // We'll need a special check on the select
             // item itself to pass info around appropriately.
             self.selectItemClick();
@@ -59,7 +65,7 @@
 
             // Loop through and build out the
             // jQuery object; duplicate as necessary;
-            this.$element.each(function(){
+            self.$element.each(function(){
                 var $thisSelect = $(this);
 
                 //Create the new list
@@ -78,15 +84,24 @@
                 // above the <ul> to house the selected item.
                 if (self.settings.selectedTop) {
                 }
+                //Now that this is a thing, let's bind the clicks
+                // Then, let's bind the UI back to the
+                // original selects.
+
             });
+            self.listItemClick();
         },
 
         listItemClick: function() {
+
             // Cache the constructor object
             var self = this;
 
             // Create the jQuery object of all appropriates
             // lists given a list class.
+
+            //N.B. We may want to contain this in another div, to avoid confusion.
+            // In apostrophe, our ass has been saved, though.
             var $list = self.$element.siblings("ul."+self.settings.listClass);
 
             // Create the jQuery object of all appropriate
@@ -188,8 +203,15 @@
             var $nextList = $nextSelect.next("ul");
 
             if (self.settings.populateSelectedTop) {
-                var $firstOption = $nextSelect.children("option").first();
-                $selectedTop.text($firstOption.text());
+
+                var selectVal = self.$element.val();
+                var $selectedOption = self.$element.find('option[value="'+selectVal+'"]');
+
+                if (selectVal === undefined) {
+                   $selectedOption = self.$element.children("option").first();
+                }
+                $selectedTop.text($selectedOption.text());
+
             }
         },
 
