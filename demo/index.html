@@ -83,7 +83,7 @@
           <option value="toyota">Toyota</option>
           <option value="honda">Honda</option>
           <option value="mitsibushi">Mitsibushi</option>
-          <option value="kia">Kia</option>
+          <option value="hey">Kia</option>
         </select>
       </div>
     </div>
@@ -102,6 +102,9 @@
           listClass: "my-lister",
           selectedClass: "my-lister-selected",
           selectedTop: false,
+          listClickCallback: function($select, $item) {
+            console.log($select, $item);
+          }
         });
       });
     </script>
