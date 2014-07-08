@@ -148,7 +148,7 @@
                 }
                 // Let's allow for a callback on the click event.
                 if (self.settings.listClickCallback) {
-                    self.settings.listClickCallback();
+                    self.settings.listClickCallback(self.$element, $thisItemEquivalent);
                 }
             });
         },
